@@ -1,0 +1,358 @@
+{% extends "base.html" %}
+{% load static %}
+{% load customtag %}
+
+
+{% block meta_title %} {{pages.meta_title}} {% endblock %}
+{% block meta_des %} {{pages.meta_description}} {% endblock %}
+{% block meta_key %} {{pages.meta_keywords}} {% endblock %}
+{% block meta_url %} https://www.{{request.get_host}}{{pages.get_absolute_url}} {% endblock %}
+{% block og_meta_title %} {{pages.meta_title}} {% endblock %}
+{% block og_meta_des %} {{pages.meta_description}}  {% endblock %}
+
+    {% block content %}
+    
+    
+    <div class="cover text-white">
+       
+        <div class="container">
+           
+          
+            <div class="row">
+                <div class=" flex-column mt-3 ">
+                    <h1 class="m-3  fw-bolder " data-aos="fade-right" data-aos-duration="800" data-aos-easing="ease-in" data-aos-once="true">{{pages.title}} </h1>
+                    
+                    
+
+                    <ul class="list-group px-3 py-3 " >
+
+                        {% for p in pages.get_title_description_list %}
+                        <li class="  "> <i class="fa-regular fa-circle-check px-3"></i>{{p}}</li>
+                        {% endfor %}
+
+                       
+                        
+                    </ul>
+                    <a href="https://wa.me/{{contact.0.Whatsapp_number}}?text={{pages.title|whatsappmsg}}"
+                        target="_blank"><img class="request" src="{% static 'img/request.png' %}" /></a>
+
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+    <div class="container d-none d-lg-block shadow sticky "
+        style="background: #36D1DC;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #5B86E5, #36D1DC);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #5B86E5, #36D1DC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+ border-radius: 10px;margin-top: 10px;z-index: 1;">
+        <div class="sub-menud">
+            <span class="sub-menu-item"><a href="#Procedure">Procedure</a> </span>
+            <span class="sub-menu-item"><a href="#Definition">Definition</a> </span>
+            <span class="sub-menu-item"><a href="#doc">Documents</a> </span>
+            <span class="sub-menu-item"><a href="#eligib">Eligibility</a> </span>
+            <span class="sub-menu-item"><a href="#FAQ">FAQ</a> </span>
+            <span><a href="https://wa.me/{{contact.0.Whatsapp_number}}?text={{pages.title|whatsappmsg}}"
+                    target="_blank"><img class="request2" src="{% static 'img/request.png' %}" /></a>
+            </span>
+
+        </div>
+    </div>
+    <br id="Procedure"  />
+    {% if pages.how_to_register %}
+    <div  style=" padding: 15px; margin-top: 30px;">
+    <div  class="container mt-6 text-center">
+        <h2 class="fw-bolder tt" data-aos="fade-right" data-aos-duration="800" data-aos-easing="ease-in" data-aos-once="true" >{{pages.how_to_register.title}}</h2>
+        
+        <hr class="style-eight">
+        <p class="fst-italic  p-3 px-lg-5" align="justify" data-aos="fade-right" data-aos-duration="800" data-aos-easing="ease-in" data-aos-once="true">{{pages.how_to_register.description}}</p>
+    </div>
+
+    <div class="container ">
+        <div class="cards flex ">
+
+            {% for i,j in pages.how_to_register.get_card_titles_list|zips:pages.how_to_register.get_card_descriptions_list %}
+            <div class="card2" data-aos="fade-right" data-aos-duration="800" data-aos-easing="ease-in" data-aos-once="true">
+                <div class="card2-content">
+                  <p class="card2-title">{{i}}
+                  </p><p class="card2-para">{{j}}</p>
+                </div>
+              </div>
+              
+            {% endfor %}
+           
+            
+            
+        </div>
+    </div>
+
+    </div>
+    <br />
+    {% endif %}
+    <!--definition-->
+    {% if pages.definition %}
+    <div  class="container flex">
+        <br id="Definition"/>
+        <div  class="container mt-5 text-center">
+            <h2 class="fw-bolder tt" data-aos="fade-right" data-aos-duration="800" data-aos-easing="ease-in" data-aos-once="true" >{{pages.definition.title}}</h2>
+            <hr class="style-eight">
+            <p  class="fst-italic  p-3 px-2" align="justify" data-aos="fade-in" data-aos-duration="800" data-aos-easing="ease-in" data-aos-once="true">{{pages.definition.definition}}</p>
+           
+        </div>
+        
+       <!--<div class="px-5">
+            <h5 style="padding-left: 18px;">Choose LLP because</h5>
+            <ul>
+                <li>Double benefits- Company and a Partnership</li>
+                <li>Limits the liabilities of its partners</li>
+                <li>No partner will be liable for other partner’s misbehave</li>
+                <li>Cheaper to incorporate than a private limited company</li>
+
+            </ul>
+        </div> -->
+
+    </div>
+    <br id="doc" />
+    {% endif %}
+    {% if pages.documents_required %}
+    <!--Document required-->
+    <div class="container mt-5">
+        <h2 class="fw-bolder text-center  tt" data-aos="fade-right" data-aos-duration="800" data-aos-easing="ease-in" data-aos-once="true" >{{pages.documents_required.title}}</h2>
+        <hr class="style-eight">
+        <div class="doc-2 ">
+           
+            <div class="doc-2-left">
+
+                <img src="{% static 'img/document reqries.png' %}" alt="document required" data-aos="fade-right" data-aos-duration="800" data-aos-easing="ease-in" data-aos-once="true" >
+         
+            </div>
+            <div class="doc-2-right ">
+                {% for doc in pages.documents_required.get_documents_list %}
+                    <p data-aos="fade-left" data-aos-duration="500" data-aos-easing="ease-in" data-aos-once="true"> <i class="fa-solid fa-thumbs-up" style="margin-right: 5px;color: #3694dc;"></i> {{doc}}</p>
+                   {% endfor %}
+                
+            </div>
+        </div>
+    </div>
+
+    {% endif %}
+    </div>
+    <br />
+
+    <!-- Extra cards-->
+    {% if pages.extra_cards %}
+    {% for extra_card in pages.extra_cards.all  %}
+    <div class="container ">
+        <h2 class="fw-bolder text-center tt" >{{extra_card.title}}</h2>
+        <hr class="style-eight">
+        <p class="fst-italic fw-light p-3 " align='justify'>{{extra_card.description}}</p>
+        <div class="h-cards ">
+
+            {% for i,j in extra_card.get_card_title_list|zips:extra_card.get_card_descriptions_list %}
+            <div class="card1 text-white m-4">
+                <div class="card__content p-4 ">
+                    <h4>{{i}}</h4>
+                    <p>{{j}}</p>
+                </div>
+
+            </div>
+            {% endfor %}
+            
+            
+        </div>
+
+    </div>
+    {% endfor %}
+    {% endif %}
+    <br>
+    <!--steps-->
+ <!--
+
+
+    <div class="container" id = 'step'>
+        <h2 class="fw-bolder text-center">Steps to form an LLP</h2>
+        <div class="s-cards">
+            <div class="s-card ">
+                <h5>Step 1: Digital Signature Certificate (DSC)</h5>
+                <p>Prior to beginning the procedure of enlistment, you should Register for the DSC for the assigned
+                    partners of the proposed LLP. Applying for DSC is necessary because the procedure for registering an
+                    LLP is done online and requires to be digitally signed.
+
+                    In this way, the partners in an LLP must get the DSC from government-affirmed confirming offices.
+                </p>
+            </div>
+            <div class="s-card">
+                <h5>Step 2: Application of DIN (Director Identification Number) and DPIN (Designated Partner
+                    Identification Number)</h5>
+                <p>Subsequent to applying for DSC, the next stage is to enlist for DPIN and DIN for the proposed
+                    Partners of the LLP, within a time period of 5 to 7 days. The application for the allocation of DIN
+                    must be made in Form DIR-3. You need to attach a scanned copy of the Aadhaar card and PAN card to
+                    the form. The form should be marked by a Company Secretary who is in full-time employment with the
+                    company or by the “Managing Director, Directors, or CEO” of the existing company, in which the
+                    candidate shall be designated as a director.</p>
+            </div>
+            <div class="s-card">
+                <h5>Step 3: Name Approval and Reservation with ROC</h5>
+
+                <p>To register a proposed LLP's name, one needs to apply for LLP-RUN, which stands for Limited Liability
+                    Partnership-Reserve Unique Name. This application is processed by the Central Registration Center
+                    under Non-STP. It's advisable to use the free name search feature on the "LegalRaasta" website
+                    before submitting one to six proposed names to the MCA. The registrar will approve the name if it's
+                    practical and doesn't match any existing partnership or LLP. The name approval process typically
+                    takes 5 to 7 working days, and if the application is rejected, it can be resubmitted within 15 days.
+                </p>
+            </div>
+            <div class="s-card">
+                <h5>Step 4: MOA & AOA submission</h5>
+                <p>Once the name is approved, one is required to draft, “Memorandum of association (MoA)” and “Articles
+                    of Association (AoA)”. Both “MOA and AOA” are to be registered with the MCA, in the agreement
+                    statement.</p>
+            </div>
+            <div class="s-card">
+                <h5>Step 5: Get Incorporation Certificate of LLP</h5>
+                <p>The form utilized for joining is FILLIP (Form for consolidation of Limited Liability Partnership)
+                    which must be enrolled with the Registrar who has jurisdiction over the state in which the enrolled
+                    office of the LLP is located. The form will be an incorporated structure. Joining records can be
+                    introduced to the “MCA” alongside an application for Incorporation. “MCA” will endorse the
+                    application for consolidation within 5 to 7 days. Incorporation certification is confirmation that
+                    the organization has been formed. It likewise includes your CIN number.</p>
+            </div>
+            <div class="s-card">
+                <h5>Step 6: Appeal for PAN, TAN and Bank account</h5>
+                <p>After the completion of the above points, you are required to apply for “PAN and TAN” and you will
+                    receive them in 7 working days. You can submit the Incorporation endorsement, “MOA, AOA, and PAN”
+                    with the bank for opening your bank account.</p>
+            </div>
+            <div class="s-card">
+                <h5>Step 7: Register for LLP Agreement</h5>
+                <p>LLP agreement oversees the common rights and obligations between the LLP and its partners. LLP
+                    agreement should be enrolled in Form 3 which is to be filed within 30 days after the date of
+                    formation.</p>
+            </div>
+        </div>
+        <br />
+    </div>
+    -->
+    
+    <br id="eligib" />
+
+    {% if pages.eligibility %}
+   
+    <!-- Eligibilty-->
+    <div class="container mt-5" >
+        <h2 class="fw-bolder text-center tt"  data-aos="fade-right" data-aos-duration="800" data-aos-easing="ease-in" data-aos-once="true">
+            {{pages.eligibility.title}}
+        </h2>
+        <hr class="style-eight">
+        <div class="outer shadow-sm">
+            {% for eli in pages.eligibility.get_eligibilities_list %}
+            <div class="inner-c shadow" data-aos="fade-left" data-aos-duration="800" data-aos-easing="ease-in" data-aos-once="true">
+                <h6 class="text-center">{{eli}}</h6>
+            </div>
+            {% endfor %}
+        </div>
+        
+
+       
+
+    </div>
+    {% endif %}
+    <br />
+    
+
+   
+ <!--\Extra split faces -->
+ 
+
+ {% if pages.extra_split_faces %}
+ <div class="container">
+    {% for extra in pages.extra_split_faces.all %}
+
+    <div class="Doc-card">
+    <h2 class="fw-bolder text-center mt-3 " >
+        {{extra.title}}
+    </h2>
+    
+    <p class=" p-3 px-5 text-center"> {{extra.description}}</p>
+    
+    <div>
+
+        <img src="{% static 'img/why.png' %}" alt="why " style="width: 400px;height: auto;">
+
+
+    </div>
+    <div>
+       
+        <ul>
+            {% for point in extra.get_points_list %}
+            <li>{{point}}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% if extra.extras %}
+    <p align='justify' class="text-center">{{extra.extras}}</p>
+    {% endif %}
+    </div>
+   
+ </div>
+</div>
+    {% endfor %}
+    {% endif %}
+
+    <br>
+ <br id = 'FAQ' >
+
+ {% if pages.faq %}
+    <!-- FAQ -->
+    <div class="container " >
+        <h2 class="fw-bolder text-center mt-3 mb-5 tt" data-aos="fade-right" data-aos-duration="800" data-aos-easing="ease-in" data-aos-once="true">
+            {{pages.faq.title}}
+        </h2>
+
+        <div class="accordion accordion-flush FAQ" id="accordionFlushExample">
+            {% for i,j in pages.faq.get_questions_list|zips:pages.faq.get_answers_list|zips:pages.faq.get_number %}
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingOne">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#num{{j}}" aria-expanded="false" aria-controls="flush-collapseOne">
+                      {{i.0}} 
+                    </button>
+                </h2>
+                <div id="num{{j}}" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
+                    data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">{{i.1}}</div>
+                </div>
+             </div>
+            {% endfor %}
+
+            
+
+            
+            </div>
+        </div>
+    </div>
+    {% endif %}
+ 
+
+
+   {% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+
+    {% block content %}
+    
+    <h1 class="blogtitle text-center">Blogs</h1>
+
+    <div class="conatiner shadow mb-3" style="display: flex;padding: 20px 30px;justify-content: space-around;" >
+        {% for i in blog %}
+        <div  onclick="location.href='{{i.get_absolute_url}}';" class="posts shadow">
+            
+            <div class="textsp">
+                <h2>
+                    {{i.title}}
+                </h2>
+                <p>{{i.description}}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+  
+    
+    {% endblock %}
