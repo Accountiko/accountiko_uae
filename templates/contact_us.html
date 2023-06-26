@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% load static %}
+
+    {% block content %}
+    
+   <div class="conatiner">
+    <h1 class="tt text-center fw-bolder sml ">Contact Us</h1>
+    <div class="conatct">
+        <div class="c-left">
+            <div class="calm">
+                <div class="calm-l">
+                    <h3>For PhoneCall Enquiry's</h3>
+                 <p>Dui eleifend vel tellus metus quam maximus</p>
+
+                </div>
+                <div class="calm-r">
+                    <a href="tel:{{contact.0.Mobile_number}}" class="text-white me-4">
+                        <i class="fa fa-phone"></i>
+                      </a>
+                </div>
+                
+            </div>
+            <div class="calm">
+                <div class="calm-l">
+                    <h3>For WhatsApp Enquiry's</h3>
+                 <p>Dui eleifend vel tellus metus quam maximus</p>
+
+                </div>
+                <div class="calm-r">
+                    <a href="https://wa.me/{{contact.0.Whatsapp_number}}?text=I%20am%20reaching%20out%20to%20inquire%20about%20your%20services%20for%20My%20business" class="text-white me-4">
+                        <i class="fab fa-whatsapp"></i>
+                      </a>
+                </div>
+            </div>
+            <div class="calm">
+                <div class="calm-l">
+                    <h3>For Email Enquiry's</h3>
+                 <p>Dui eleifend vel tellus metus quam maximus</p>
+
+                </div>
+                <div class="calm-r">
+                    <a href="mailto:{{contact.0.email}}" class="text-white me-4">
+                        <i class="fa fa-envelope "></i>
+                      </a>
+                </div>
+            </div>
+        </div>
+        <div class="c-right">
+            <div class="address">
+                <i class="fa fa-location "></i><span>{{contact.0.address}}</span>
+            </div>
+            <div class="map">
+                 
+                <iframe class="map shadow mt-5 " src="{{contact.0.location_url}}" width="400" height="200" style="border:1;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+            </div>
+        </div>
+    </div>
+    <div class="social-cont">
+        <a href="{{contact.0.facebook_url}}" class="text-white me-4">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="{{contact.0.twitter_url}}" class="text-white me-4">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="{{contact.0.email}}" class="text-white me-4">
+            <i class="fab fa-google"></i>
+          </a>
+          <a href="{{contact.0.instagram_url}}" class="text-white me-4">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="{{contact.0.linkedin_url}}" class="text-white me-4">
+            <i class="fab fa-linkedin"></i>
+          </a>
+    </div>
+    <br/>
+   </div>
+    {% endblock %}

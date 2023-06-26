@@ -1,6 +1,7 @@
 body{
    
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+
 }
 
 *{
@@ -23,7 +24,7 @@ a{
     top: 0;
     left: 0;
     width: 100%;
-    background: #fff;
+    
     height: 15px;
     z-index: 2;
       /* fallback for old browsers */
@@ -35,6 +36,7 @@ a{
     justify-content: space-between;
     align-items: center;
     gap: 1em;
+    
 }
 
 .brand{
@@ -44,7 +46,7 @@ a{
 
 .brand:hover{
     font-weight: bolder;
-    color: #428aff;
+    color: #42c6ff;
 }
 
 button{
@@ -64,7 +66,7 @@ button{
 }
 
 .btn:hover{
-    background: #3877db;
+    background:#42c6ff;
 }
 
 .menu-btn{
@@ -88,6 +90,7 @@ button{
 @media screen and (min-width: 1040px) {
     .navbar{
         padding: 0 1.5em;
+        
     }
     .dropdown1 > div{
         padding: 1.5em 1em;
@@ -130,7 +133,8 @@ button{
     }
 
     .dropdown1:hover > div{
-        border-color: #1a3cb6!important;
+        border-color: #36b3ec!important;
+        color: #0392d5!important;
     }
 
     .dropdown1 li{
@@ -271,3 +275,8 @@ button{
 }
 
 
+.ftbg{
+    background: url('./img/footerbg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+}

@@ -12,24 +12,15 @@ class Cover(models.Model):
     
 
 class WhyChoose(models.Model):
-    title = models.TextField(help_text="use | for next line")
-    description = models.TextField(help_text="use | for next line . Only 4 lines allowed")
+    title = models.TextField()
+    description = models.TextField()
+    image = models.ImageField(upload_to='whychoose',blank=True,null=True)
 
 
     def __str__(self):
         return self.title
     
-    def get_whychoose_titles_list(self):
-        if self.title:
-            return self.title.split('|')
-        else:
-            return None
-    
-    def get_whychoose_descriptions_list(self):
-        if self.description:
-            return self.description.split('|')
-        else:
-            return None
+   
         
 
         
@@ -94,7 +85,7 @@ class Client(models.Model):
 
 class HomePage(models.Model):
     cover = models.ForeignKey(Cover,on_delete=models.CASCADE)
-    why_choose = models.ForeignKey(WhyChoose,on_delete=models.CASCADE)
+    why_choose = models.ManyToManyField(WhyChoose)
     about_us = models.ForeignKey(AboutUs,on_delete=models.CASCADE)
     testimonial = models.ForeignKey(Testimonial,on_delete=models.CASCADE)
     clients = models.ManyToManyField(Client)

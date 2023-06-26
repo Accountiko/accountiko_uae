@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import path
 from pages.views import home ,pages
 from blog.views import blog,blog_details
+from home.views import aboutus,contactus
 from django.conf.urls.static import static
 from django.conf import settings
 
@@ -27,6 +28,8 @@ urlpatterns = [
     path('',home,name="home"),
     path('<slug:slug>/',pages,name="pages"),
     path('blog',blog,name="blog"),
+    path('aboutus',aboutus,name="aboutus"),
+    path('contactus',contactus,name="contact_us"),
     path('blog/<slug:slug>/',blog_details,name="blog_details"),
 ]+ static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
 

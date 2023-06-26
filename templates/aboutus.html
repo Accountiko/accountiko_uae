@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+{% load static %}
+{% load customtag %}
+
+    {% block content %}
+    
+   <div class="container mb-5">
+    <div class="about-us-p">
+        <h1 class="aboutus-title text-center">
+            About Us
+        </h1>
+        <div class="aboutus-img">
+            <img src="https://math-media.byjusfutureschool.com/bfs-math/2022/07/04185628/Asset-1-8-300x300.png" alt="">
+        </div>
+     
+   
+    </div>
+   <h1 class="head tt">About Accountiko UAE</h1>
+    <p class="para">
+        Ligula litora arcu pharetra eget eleifend felis placerat. Phasellus semper gravida efficitur ornare iaculis auctor enim conubia curae. Et luctus faucibus etiam leo nec elementum. Congue taciti fringilla natoque etiam blandit risus.
+
+Ipsum pulvinar donec sollicitudin orci nam mollis diam a potenti curae. Condimentum scelerisque sapien vestibulum venenatis suscipit porta suspendisse a nullam ultricies. Urna est neque pretium lectus quis imperdiet nascetur rutrum. Velit luctus sollicitudin pretium porttitor etiam fringilla. Pulvinar tristique nisi iaculis adipiscing platea venenatis. Dui velit semper cursus lacinia tincidunt. Donec morbi metus vivamus condimentum fringilla. Ante a quam vestibulum ridiculus maecenas proin odio.
+
+Auctor laoreet vivamus neque cras ultricies mauris conubia. Malesuada cursus donec dictum habitasse ante dis mattis porta placerat. Tortor in duis hac placerat luctus ipsum inceptos donec potenti. Diam blandit si pharetra consectetuer cras facilisi pulvinar nibh mollis. Malesuada suspendisse egestas adipiscing odio hac vulputate aptent. Enim fringilla sociosqu cras ornare eu. Ad pellentesque himenaeos semper mauris vitae. Taciti tincidunt curae enim risus ut porta efficitur fringilla pede.
+
+Sagittis iaculis metus eu nisl phasellus quam malesuada nulla tortor rhoncus. Porta dolor nascetur vivamus curabitur bibendum inceptos. Ex risus suscipit nisl integer faucibus penatibus placerat elementum. Elementum viverra nullam primis suscipit ut ornare ex metus etiam. Donec tempus elementum efficitur parturient proin dolor posuere mollis id eleifend. Et vel lorem mi sit vitae. Est conubia velit molestie sem ullamcorper viverra non. Consequat nisi nostra hac faucibus convallis blandit praesent consectetuer sapien.
+
+Quam ad maximus amet habitasse inceptos. Lectus interdum habitasse ornare dictum condimentum si mi dignissim dui. Mollis dignissim morbi fringilla maecenas etiam sagittis hac. Gravida quis pretium non nec etiam aptent per dignissim purus. Etiam purus posuere mollis magnis diam eleifend. Montes habitasse sit et consectetuer amet torquent laoreet cursus ad. Ante bibendum pellentesque ultricies urna convallis. Interdum pretium eleifend penatibus urna morbi mi class proin.
+
+Nunc congue sed vel tempus nam malesuada nullam finibus. Hendrerit consectetur suspendisse class nunc ut nascetur. Nascetur elit ex eu libero montes penatibus conubia volutpat cursus habitant si. Aptent libero lorem faucibus nulla auctor viverra pede ridiculus id. Augue class curabitur congue diam magna elit molestie montes. Et montes proin id nostra amet interdum.
+    </p>
+
+
+    <div class="social-cont">
+        <a href="{{contact.0.facebook_url}}" class="text-white me-4">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="{{contact.0.twitter_url}}" class="text-white me-4">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="{{contact.0.email}}" class="text-white me-4">
+            <i class="fab fa-google"></i>
+          </a>
+          <a href="{{contact.0.instagram_url}}" class="text-white me-4">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="{{contact.0.linkedin_url}}" class="text-white me-4">
+            <i class="fab fa-linkedin"></i>
+          </a>
+    </div>
+</div>
+<!-- why choose us -->
+<h1 class="tt fw-bolder text-center m-5" data-aos="fade-right" data-aos-duration="800" data-aos-easing="ease-in" data-aos-once="true"> Why Choose Us ?</h1>
+<div class="why" >
+   
+   <div class="cont">
+    {% for i,j in home.0.why_choose.get_whychoose_titles_list|zips:home.0.why_choose.get_whychoose_descriptions_list %}
+      <div class="comp">
+         <div class="rounded-img"></div>
+         <div class="whycontent">
+            <h5 class="text-center">{{i}}</h5>
+            <p>{{j}}</p>
+         </div>
+      </div>
+      {% endfor %}
+     
+      
+   </div>
+</div>
+<br>
+
+<h1 class="tt fw-bolder text-center m-5" data-aos="fade-right" data-aos-duration="500" data-aos-easing="ease-in" data-aos-once="true">Our clients</h1>
+
+<div class="autoscroll">
+   <marquee scrolldelay = "200" scrollamount = "50" class="scroll">
+    {% for i in home.0.clients.all %}
+      <img alt="{{i.title}}" src="{{i.img.url}}"/>
+    {% endfor %}
+      
+  </marquee>
+</div>
+<br>
+
+    
+    {% endblock %}

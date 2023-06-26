@@ -44,9 +44,7 @@
 
     </div>
     <div class="container d-none d-lg-block shadow sticky "
-        style="background: #36D1DC;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #5B86E5, #36D1DC);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #5B86E5, #36D1DC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        style=" background: linear-gradient(to right, #159957, #155799);
  border-radius: 10px;margin-top: 10px;z-index: 1;">
         <div class="sub-menud">
             <span class="sub-menu-item"><a href="#Procedure">Procedure</a> </span>
@@ -66,7 +64,7 @@ background: linear-gradient(to right, #5B86E5, #36D1DC); /* W3C, IE 10+/ Edge, F
     <div  class="container mt-6 text-center">
         <h2 class="fw-bolder tt" data-aos="fade-right" data-aos-duration="800" data-aos-easing="ease-in" data-aos-once="true" >{{pages.how_to_register.title}}</h2>
         
-        <hr class="style-eight">
+       
         <p class="fst-italic  p-3 px-lg-5" align="justify" data-aos="fade-right" data-aos-duration="800" data-aos-easing="ease-in" data-aos-once="true">{{pages.how_to_register.description}}</p>
     </div>
 
@@ -97,7 +95,7 @@ background: linear-gradient(to right, #5B86E5, #36D1DC); /* W3C, IE 10+/ Edge, F
         <br id="Definition"/>
         <div  class="container mt-5 text-center">
             <h2 class="fw-bolder tt" data-aos="fade-right" data-aos-duration="800" data-aos-easing="ease-in" data-aos-once="true" >{{pages.definition.title}}</h2>
-            <hr class="style-eight">
+            
             <p  class="fst-italic  p-3 px-2" align="justify" data-aos="fade-in" data-aos-duration="800" data-aos-easing="ease-in" data-aos-once="true">{{pages.definition.definition}}</p>
            
         </div>
@@ -120,7 +118,7 @@ background: linear-gradient(to right, #5B86E5, #36D1DC); /* W3C, IE 10+/ Edge, F
     <!--Document required-->
     <div class="container mt-5">
         <h2 class="fw-bolder text-center  tt" data-aos="fade-right" data-aos-duration="800" data-aos-easing="ease-in" data-aos-once="true" >{{pages.documents_required.title}}</h2>
-        <hr class="style-eight">
+       
         <div class="doc-2 ">
            
             <div class="doc-2-left">
@@ -146,7 +144,7 @@ background: linear-gradient(to right, #5B86E5, #36D1DC); /* W3C, IE 10+/ Edge, F
     {% for extra_card in pages.extra_cards.all  %}
     <div class="container ">
         <h2 class="fw-bolder text-center tt" >{{extra_card.title}}</h2>
-        <hr class="style-eight">
+       
         <p class="fst-italic fw-light p-3 " align='justify'>{{extra_card.description}}</p>
         <div class="h-cards ">
 
@@ -245,7 +243,7 @@ background: linear-gradient(to right, #5B86E5, #36D1DC); /* W3C, IE 10+/ Edge, F
         <h2 class="fw-bolder text-center tt"  data-aos="fade-right" data-aos-duration="800" data-aos-easing="ease-in" data-aos-once="true">
             {{pages.eligibility.title}}
         </h2>
-        <hr class="style-eight">
+     
         <div class="outer shadow-sm">
             {% for eli in pages.eligibility.get_eligibilities_list %}
             <div class="inner-c shadow" data-aos="fade-left" data-aos-duration="800" data-aos-easing="ease-in" data-aos-once="true">
