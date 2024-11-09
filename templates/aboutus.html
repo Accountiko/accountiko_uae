@@ -52,17 +52,19 @@ Nunc congue sed vel tempus nam malesuada nullam finibus. Hendrerit consectetur s
 <!-- why choose us -->
 <h1 class="tt fw-bolder text-center m-5" data-aos="fade-right" data-aos-duration="800" data-aos-easing="ease-in" data-aos-once="true"> Why Choose Us ?</h1>
 <div class="why" >
-   
-   <div class="cont">
-    {% for i,j in home.0.why_choose.get_whychoose_titles_list|zips:home.0.why_choose.get_whychoose_descriptions_list %}
+  <div class="cont">
+    {% for i in home.0.why_choose.all %}
       <div class="comp">
-         <div class="rounded-img"></div>
+         <div class="rounded-img" > <img  src="{{i.image.url}}" alt=""></div>
          <div class="whycontent">
-            <h5 class="text-center">{{i}}</h5>
-            <p>{{j}}</p>
+            <h5 class="text-center">{{i.title}}</h5>
+            <p>{{i.description}}</p>
          </div>
       </div>
       {% endfor %}
+     
+      
+   </div>
      
       
    </div>
